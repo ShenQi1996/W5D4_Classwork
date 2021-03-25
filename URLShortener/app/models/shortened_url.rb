@@ -21,8 +21,8 @@ class ShortenedUrl < ApplicationRecord
         rcode
     end
 
-    def create_short_url(user, long_url_str)
+    def self.create_short_url(user, long_url_str)
         short_url_str = ShortenedUrl.random_code
-        ShortenedUrl.new(long_url: long_url_str,short_url: short_url_str )
+        ShortenedUrl.new(long_url: long_url_str, short_url: short_url_str, submitter_id: user.id)
     end
 end
